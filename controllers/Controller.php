@@ -53,5 +53,21 @@ abstract class Controller
             session_start();
         }
     }
+
+
+    /**
+     * @param $model
+     */
+    protected function loadModel($model)
+    {
+        $modelFile = ROOT . "/models/" . $model . ".php";
+        if(is_file($modelFile)){
+
+        }
+        require_once $modelFile;
+        if (class_exists($model)) {
+            return new $model();
+        }
+    }
 }
 
