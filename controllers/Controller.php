@@ -42,6 +42,8 @@ abstract class Controller
         self::$twig = new Twig_Environment($loader, array(
             'cache' => false,//cache disabled
         ));
+
+        self::$twig->addGlobal("PATH_URL", "/nuitinfo");
     }
 
     /**
