@@ -7,7 +7,7 @@ class Index extends Controller {
         parent::__construct();
     }
 
-    public function index(){
+    public function homeAction(){
         $this->view("index");
     }
 }
