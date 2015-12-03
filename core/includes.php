@@ -6,6 +6,8 @@
 define('ROOT', realpath(__DIR__ . "/.."));
 
 
+require_once "functions.php";
+
 /**
  * Include Twig
  */
