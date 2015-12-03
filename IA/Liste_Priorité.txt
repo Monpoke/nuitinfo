@@ -1,0 +1,105 @@
+
+
+Catégories : (Système de points/coeff)
+	- Reconstruction
+	- Electricité
+	- Nourriture
+	- Eau
+	- Medicaments
+	- Hygiène
+	- Vêtement
+	
+	
+Sous-catégories :
+	Reconstruction:
+		Hoptiaux
+		Ecoles
+		Batiments publiques
+		
+	Médicaments :
+		Antibiotiques
+		Pensements
+		Centres médicaux protables
+		Masques
+		
+	Hygiène :
+		Infection
+		Désidratation
+		Toilette
+		Désinfecter
+		
+	Nourriture :
+		Conserve
+		Enfants
+		(Répartition protéine/glucide etc)
+		
+	Vêtement :
+		Couverture survie
+		
+	Eau :
+		pack d'eau
+		installation filtres
+		
+Listes Nourriture : // 1560 cal minimum / jour par personne
+	Riz; (100g) 130 cal
+	Lait en poudre; (100g) 500 cal
+	Conserve Viande(Thon, ravioli, lentilles) (100g) 150 cal
+	Soupes lyophilisées; (100g) 30cal
+	Conserve légumes (haricots verts, brocoli) (100g) 200 cal
+	Pates (100g) 130 cal
+	Compote de fruits/fruits seches (100 g) 120 cal
+	Barres de cereales (100g) 250 cal
+	Pain complet (100g) 300 cal
+	
+Liste Eau :
+	3 litre d'eau par jour / personne (1Litre pour l'hygiène et la cuisine)
+	
+Liste Hygiène : 
+	Sac poubelles;
+	Gants;
+	Masques;
+	Gel désinfectant pour main;
+	Savon
+	
+Liste médicaments :
+	Paracetamol;
+	Médecin;
+	Maux estomac;
+	Compresses;
+	
+Liste vêtement :
+	Couverture de survie;
+	Vêtement;
+	
+	
+	
+Coefficients :
+	Nourriture 8
+	Eau 6
+	Hygiène 4
+	Medicaments 3
+	Vêtement 2
+	Reconstruction 1
+	
+
+Liste complète typique:
+	Nourriture : 
+		1 item de chaque = 1810 cal
+		sans lait en poudre (1/2) = 1310 cal
+		Ce qui laisse une moyenne de 1560 cal tout les 2 packets (en estimant qu'il y a autant d'enfant sinistrés que d'adulte)
+		
+	Eau :
+		3 bouteilles de 1L d'eau
+		
+	Hygiène :
+		1 sac poubelles
+		2 gants
+		2 masques
+		1 gel
+		1 savon
+		
+	Vetements
+		
+	
+Ideas :  Objectif est de finir une liste complete de vivres pour une personne par jour avant de passer a la personne suivante
+Avoir un objectif global -> prendre nombre total de personnes sinistrées * prix total d'une liste complete;
