@@ -1,11 +1,105 @@
 {% extends "layouts/html.twig" %}
 
+{% block title %}
+    Accueil
+{% endblock %}
 {% block body %}
-    <h1>Accueil</h1>
 
-    <p>
-        Test done
-    </p>
+    <section id="allDisasters">
 
-    <div id="message"></div>
+        {% for disaster in disasters %}
+
+            <div class="section">
+                <h5 class="center-align" style="text-decoration: underline;"><b>Tsunami à Paris</b></h5>
+
+                <div class="row center-align">
+                    <div class="col s6">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="assets/images/tsunami.jpg"/>
+                            </div>
+                            <div class="card-content">
+                                <p>
+                                    I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget felis viverra nulla
+                        dapibus
+                        laoreet.
+                        Etiam nisl nisi, feugiat sed tempus vel, vehicula pellentesque felis. Ut bibendum nisl nunc, sit
+                        amet
+                        egestas risus efficitur eget. Nam suscipit magna nec orci blandit bibendum. Nam augue metus,
+                        hendrerit
+                        nec
+                        tellus sit amet, luctus blandit dui. Pellentesque tempus vitae lorem vitae eleifend. Phasellus
+                        blandit
+                        felis
+                        in placerat volutpat. Pellentesque eu justo posuere, ultricies dui id, vestibulum dui. Integer
+                        sed
+                        lectus
+                        placerat, lobortis orci non, tempor est. Fusce orci libero, viverra non faucibus nec, fermentum
+                        non
+                        nisl.
+                        Proin non erat ligula. Aenean pretium pellentesque tortor et gravida. Duis ac ante tortor.
+                        <br/>
+                        Etiam sollicitudin erat sit amet ultrices scelerisque. Curabitur fringilla velit et quam
+                        hendrerit,
+                        eu
+                        fringilla risus aliquet. Aenean sit amet risus scelerisque nisl ullamcorper vehicula. Integer
+                        feugiat
+                        tellus
+                        metus, a dictum elit semper id. Morbi eu vehicula elit. Nam eget lobortis felis, nec elementum
+                        mi.
+                        Ut ut
+                        leo
+                        nec turpis vehicula faucibus id non erat. Mauris id mauris condimentum, euismod erat ac, rutrum
+                        sapien.
+                        Nulla mollis elementum metus sed vestibulum. Quisque pulvinar rutrum dui quis imperdiet. Integer
+                        a
+                        pulvinar
+                        enim.
+                        <br/>
+                        Quisque nec lacus et justo auctor rutrum. Aenean facilisis ex a dui commodo, quis tincidunt eros
+                        faucibus.
+                        Nulla vitae turpis quis odio aliquam consectetur vel vel tortor. Aenean nulla quam, aliquam eget
+                        metus
+                        vitae, eleifend pharetra magna. Etiam congue urna sit amet massa pellentesque faucibus. Integer
+                        vel
+                        metus
+                        nunc. In ornare nisl non libero accumsan, ac consectetur erat blandit. Proin gravida diam
+                        laoreet
+                        nisi
+                        convallis egestas. Duis congue justo ex, vitae egestas ex elementum non. Aliquam elit nunc,
+                        volutpat
+                        eu
+                        turpis at, iaculis dapibus nibh. Nullam ultricies posuere magna, nec malesuada erat fermentum
+                        nec.
+                        Aliquam
+                        massa est, ullamcorper ut nibh vitae, placerat posuere sapien. Fusce massa metus, varius id enim
+                        et,
+                        semper
+                        facilisis magna. Cras pellentesque at odio sed fringilla. Nullam pretium arcu aliquam leo
+                        tempor, et
+                        elementum erat congue.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s2">
+                        <i class="icon-eur material-icons prefix"></i>
+                        <input value="" id="don" type="text" class="validate">
+                        <label class="active" for="don">Don</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+        {% endfor %}
+
+    </section>
 {% endblock %}
