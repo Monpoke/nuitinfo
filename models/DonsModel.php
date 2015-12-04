@@ -25,7 +25,7 @@ class DonsModel extends Model
     }
 
 
-    public function getSumEvent($id)
+    public function getSumEvent()
     {
         $PDO = $this->getPDO();
         try {
@@ -35,6 +35,26 @@ class DonsModel extends Model
             ));
             $row = $p->fetch();
             return (double)$row['su'];
+        } catch (Exception $e) {
+
+        }
+        return 0;
+    }
+
+    public function getSumEvents()
+    {
+        $PDO = $this->getPDO();
+        try {
+            $p = $PDO->prepare("SELECT id_sinistre, SUM(don) AS su FROM dons GROUP BY id_sinistre");
+            $p->execute();
+
+            $events = array();
+
+            while($rs=$p->fetch(PDO::FETCH_ASSOC)){
+                $events[$rs['id_sinistre']] = $rs['su'];
+            }
+
+            return $events;
         } catch (Exception $e) {
 
         }

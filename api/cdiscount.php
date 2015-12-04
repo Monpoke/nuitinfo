@@ -2,7 +2,8 @@
 define("API_KEY", "525502c6-8822-4539-a3cf-6a346e35a6f6");
 define("API_SEARCH", "https://api.cdiscount.com/OpenApi/json/Search");
 
-function search_products(ProductCategory $category, $page) {
+function search_products(ProductCategory $category, $page)
+{
     $post_data = array();
     $post_data["ApiKey"] = API_KEY;
     $post_data["SearchRequest"] = array();
@@ -22,12 +23,15 @@ function search_products(ProductCategory $category, $page) {
     return json_decode($file, true);
 }
 
-function get_product(ProductCategory $category) {
+function get_product(ProductCategory $category)
+{
     $data = search_products($category, 0);
     $data_products = $data["Products"];
-    foreach ($data_products as $data_product) {
-        if ($data_product["BestOffer"]["IsAvailable"])
-            return new Product($data_product["Id"], $data_product["Name"], (float)$data_product["BestOffer"]["SalePrice"], $category, $data_product["Description"], $data_product["BestOffer"]["IsAvailable"]);
+    if (is_array($data_products)) {
+        foreach ($data_products as $data_product) {
+            if ($data_product["BestOffer"]["IsAvailable"])
+                return new Product($data_product["Id"], $data_product["Name"], (float)$data_product["BestOffer"]["SalePrice"], $category, $data_product["Description"], $data_product["BestOffer"]["IsAvailable"]);
+        }
     }
     return null;
 }

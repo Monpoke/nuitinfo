@@ -4,8 +4,14 @@
 $(function () {
     $("form").submit(function (e) {
         e.preventDefault();
-        var val = $(this).find('input').val();
+        var val = parseInt($(this).find('input').val());
         var id = $(this).find('input').attr('data-id');
+
+        if(isNaN(val) || val <= 0){
+            alert("Attention, vérifiez votre saisie !");
+            return;
+        }
+
         $(this).find('input').attr('disabled', 'disabled');
         $.post($(this).attr('action'), {'id': id, 'val': val}, function (data) {
             if (data != "fail") {

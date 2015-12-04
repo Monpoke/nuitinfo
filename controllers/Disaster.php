@@ -33,7 +33,6 @@ class Disaster extends Controller {
 
 
 
-
         var_dump($catas);
 
         /**

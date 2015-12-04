@@ -14,7 +14,7 @@ class Disaster extends Model {
 
     private $image;
 
-    private $product;
+    private $product = null;
 
     private $total_raised;
 
@@ -84,7 +84,13 @@ class Disaster extends Model {
         return $this->total_product;
     }
 
+    public function setTotalProduct($total_product)
+    {
+        $this->total_product = $total_product;
+    }
+
     public function get_percent() {
+
         return min(100, floor($this->total_product / $this->product->get_price() * 100));
     }
 

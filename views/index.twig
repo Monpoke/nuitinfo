@@ -38,7 +38,10 @@
                                 <img src="assets/images/tsunami.jpg"/>
                             </div>
                             <div class="card-content">
-                                Small text
+                                Produit en cours : {{ disaster.product.get_name() }} ({{ disaster.getTotalProduct() }} / {{ disaster.product.get_price() }}€)
+                                {% if disaster.getTotalProduct() >  disaster.product.get_price() %}
+                                    <strong style="font-weight: bold;color:green;">Merci !</strong>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

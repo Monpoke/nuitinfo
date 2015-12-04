@@ -3,6 +3,8 @@
 class Articles extends Model
 {
 
+    protected static $cachePrices = array();
+
     public function __construct()
     {
         parent::__construct();
@@ -19,10 +21,12 @@ class Articles extends Model
         $prepare->execute();
         $articles = array();
         while ($rs = $prepare->fetch(PDO::FETCH_ASSOC)) {
-            $articles[] = $rs;
+
+            $articles[] = new Product($rs['id'], $rs['name'], $rs['price'], "", "", true);
+
         }
 
-    return $articles;
+        return $articles;
     }
 
 }

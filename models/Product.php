@@ -13,6 +13,9 @@ class Product extends Model {
 
     private $available;
 
+    private static $cachePrices;
+    private $currentDonation;
+
     function __construct($id, $name, $price, $category, $description, $available) {
         parent::__construct();
         $this->$id = $id;
@@ -21,6 +24,10 @@ class Product extends Model {
         $this->category = $category;
         $this->description = $description;
         $this->available = $available;
+    }
+
+    public function setCurrentDonation($in){
+        $this->currentDonation = $in;
     }
 
     public function get_id() {
@@ -32,6 +39,18 @@ class Product extends Model {
     }
 
     public function get_price() {
+        if ($this->price == 0) {
+            if (!isset(self::$cachePrices[$this->get_id()])) {
+                $gp = get_product(new ProductCategory(strtolower($this->name), ""));
+                self::$cachePrices[$this->get_id()] = $gp;
+            }
+
+            if (isset(self::$cachePrices[$this->get_id()])) {
+                $this->price = self::$cachePrices[$this->get_id()]->get_price();
+
+            }
+        }
+
         return $this->price;
     }
 
