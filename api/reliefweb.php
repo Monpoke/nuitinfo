@@ -14,7 +14,8 @@ echo trouverRef($tab, $num);
 echo trouverNom($tab, $num);
 echo trouverIncident($tab, $num);
 
-function trouverDate($tab, $num) { // permmetra un classement par date 
+function trouverDate($tab, $num)
+{ // permmetra un classement par date
     $nom = $tab["data"][$num]["fields"]["name"];
     echo "<br>";
     echo "<br>";
@@ -27,7 +28,8 @@ function trouverDate($tab, $num) { // permmetra un classement par date
     return $nomtab[1];
 }
 
-function trouverId($tab, $num) { // permmetra un classement par date 
+function trouverId($tab, $num)
+{ // permmetra un classement par date
     $id = $tab["data"][$num]["id"];
     echo "<br>";
     echo "<br>";
@@ -40,7 +42,8 @@ function trouverId($tab, $num) { // permmetra un classement par date
     return $id;
 }
 
-function trouverRef($tab, $num) { // permmetra un classement par date 
+function trouverRef($tab, $num)
+{ // permmetra un classement par date
     $href = $tab["data"][$num]["href"];
     echo "<br>";
     echo "<br>";
@@ -53,7 +56,8 @@ function trouverRef($tab, $num) { // permmetra un classement par date
     return $href;
 }
 
-function trouverNom($tab, $num) { // permmetra un classement par date 
+function trouverNom($tab, $num)
+{ // permmetra un classement par date
     $nom = $tab["data"][$num]["fields"]["name"];
     echo "<br>";
     echo "<br>";
@@ -67,7 +71,8 @@ function trouverNom($tab, $num) { // permmetra un classement par date
     return $nomtab2[0];
 }
 
-function trouverIncident($tab, $num) { // permmetra un classement par date 
+function trouverIncident($tab, $num)
+{ // permmetra un classement par date
     $nom = $tab["data"][$num]["fields"]["name"];
     echo "<br>";
     echo "<br>";

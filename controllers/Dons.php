@@ -37,7 +37,12 @@ class Dons extends Controller
 
         /** @var Articles $Articles */
         $Articles = $this->loadModel("Articles");
-        $Articles->getArticlesByPriority();
+
+        /** @var DonsModel $Dons */
+        $Dons = $this->loadModel("DonsModel");
+        $s = $Dons->getSumEvent(2);
+        var_dump($s);
+//        $Articles->getArticlesByPriority();
 
         exit();
     }
