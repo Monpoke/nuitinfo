@@ -27,46 +27,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 <script type="text/javascript" src="assets/js/chart.js"></script>
-<script>
-    $(function () {
-        var chart = new Highcharts.Chart({
-                    chart: {
-                        renderTo: 'container',
-                        type: 'pie'
-                    },
-                    plotOptions: {
-                        pie: {
-                            innerSize: '60%'
-                        }
-                    },
-                    series: [{
-                        data: [
-                            ['Accompli', 20.0],
-                            ['Non accompli', 80.0]
-                        ]
-                    }]
-                },
-
-                function (chart) { // on complete
-                    var textX = chart.plotLeft + (chart.plotWidth * 0.5);
-                    var textY = chart.plotTop + (chart.plotHeight * 0.5);
-
-                    var span = '<span id="pieChartInfoText" style="position:absolute; text-align:center;">';
-                    span += '<span style="font-size: 32px"><img src="assets/images/objects/eau.jpg"></span><br>';
-                    span += '<span style="font-size: 16px">20%</span>';
-                    span += '</span>';
-
-                    $("#addText").append(span);
-                    span = $('#pieChartInfoText');
-                    span.css('left', textX + (span.width() * -0.5));
-                    span.css('top', textY + (span.height() * -0.5));
-                });
-    });
-</script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
-<div>
-    <div id="container" style="position:absolute; left:0px; top:0px;"></div>
-    <div id="addText" style="position:absolute; left:0px; top:0px;"></div>
-</div>
+{% block js %}{% endblock %}
 </body>
 </html>
