@@ -1,6 +1,8 @@
 <?php
 class Product extends Model {
 
+    private $id;
+
     private $name;
 
     private $price;
@@ -11,13 +13,18 @@ class Product extends Model {
 
     private $available;
 
-    function __construct($name, $price, $category, $description, $available) {
+    function __construct($id, $name, $price, $category, $description, $available) {
         parent::__construct();
+        $this->$id = $id;
         $this->name = $name;
         $this->price = $price;
         $this->category = $category;
         $this->description = $description;
         $this->available = $available;
+    }
+
+    public function get_id() {
+        return $this->id;
     }
 
     public function get_name() {
