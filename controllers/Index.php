@@ -13,7 +13,7 @@ class Index extends Controller
 
         $this->loadModel("Disaster", true);
 
-        $p = new Product("Eau", 100, "Boisson", "Basique...", true);
+        $p = new Product(1, "Eau", 100, "Boisson", "Basique...", true);
 
         $d = "";
         for($i=0;$i<20;$i++){
