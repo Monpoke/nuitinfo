@@ -30,4 +30,15 @@ class Dons extends Controller
         }
         echo "fail";
     }
+
+
+
+    public function testAction(){
+
+        /** @var Articles $Articles */
+        $Articles = $this->loadModel("Articles");
+        $Articles->getArticlesByPriority();
+
+        exit();
+    }
 }

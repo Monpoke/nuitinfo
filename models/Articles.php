@@ -16,7 +16,11 @@ class Articles extends Model
 
         $PDO = $this->getPDO();
         $prepare = $PDO->prepare("SELECT * FROM produits_liste ORDER BY priorite DESC");
-        $rs = $prepare->execute();
+        $prepare->execute();
+        while ($rs = $prepare->fetch(PDO::FETCH_ASSOC)) {
+            var_dump($rs);
+        }
+
 
     }
 

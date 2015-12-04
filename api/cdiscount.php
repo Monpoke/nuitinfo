@@ -34,4 +34,4 @@ function get_product(ProductCategory $category) {
     return null;
 }
 
-get_product(new ProductCategory("pansement", "test"));
+var_dump(get_product(new ProductCategory("pansement", "test")));
