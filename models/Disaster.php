@@ -80,7 +80,23 @@ class Disaster extends Model {
     }
 
     public function get_percent() {
-        return floor($this->total_product / $this->product->get_price() * 100);
+        return min(100, floor($this->total_product / $this->product->get_price() * 100));
+    }
+
+    public function donate($amount) {
+        $this->total_raised += $amount;
+        $this->total_product += $amount;
+    }
+
+    public function next_product() {
+        if ($this->get_percent() == 100) {
+            $this->product = $this->get_priority_product();
+            $this->total_product = 0;
+        }
+    }
+
+    public function get_priority_product() {
+        return new Product("water", 3, new ProductCategory("", ""), "adawd", false);
     }
 
 }
