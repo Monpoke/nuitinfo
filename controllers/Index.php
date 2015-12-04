@@ -11,11 +11,17 @@ class Index extends Controller
     public function homeAction()
     {
 
+        $this->loadModel("Disaster");
+
         $disasters = array(
             new Disaster("Tsunami bancock", new Product("water", 2.5, new ProductCategory("test", "dasd"), "dasd", true)),
             new Disaster("Earthquake LA", new Product("water", 2.5, new ProductCategory("test", "dasd"), "dasd", true))
         );
-        $this->view("index");
+        $this->view("index", array(
+            'disasters' => $disasters
+        ));
     }
+
+
 
 }
