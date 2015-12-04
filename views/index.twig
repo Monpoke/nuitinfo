@@ -23,8 +23,8 @@
                                             <small>{{ disaster.date }}</small>
                                         </h2>
                                     </div>
-                                    <div class="col s4">
-                                        Test
+                                    <div class="col s4" style="font-style: italic;padding-top:3%;font-size: 1.5em;;">
+                                        {{ disaster.type }}
                                     </div>
                                 </div>
 
@@ -35,19 +35,40 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col s6">
-                        <div id="chart_{{ disaster.id }}"
-                             style="border:black solid 1px; width: 100%;height:250px;"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s2">
-                        <i class="icon-eur material-icons prefix"></i>
-                        <input value="" id="don_{{ disaster.id }}" type="text" class="validate">
-                        <label class="active" for="don">Don</label>
-                    </div>
+                    <div class="col s6 valign-wrapper" style="padding-top:8%;">
+                        <div class="row valign">
+                            <div class="col s12">
+                                <div class="row">
+                                    <div id="chart_{{ disaster.id }}"
+                                         style="border:black solid 1px; width: 100%;height:250px;"></div>
+                                </div>
+                                <div class="row">
+                                    <p>
+                                        Si vous souhaitez faire un don pour aider les sinistrés, entrez le montant de
+                                        votre
+                                        aide ci-dessous:
+                                    </p>
+                                </div>
 
+                                <div class="row">
+                                    <div class="input-field col s8 offset-s1">
+                                        <i class="icon-eur material-icons prefix"></i>
+                                        <input value="" id="don_{{ disaster.id }}" type="text" class="validate">
+                                        <label class="active" for="don">Don</label>
+                                    </div>
+                                    <div class="col s4">
+                                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                                            Donner
+                                            <i class="material-icons right"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
             <div class="divider"></div>
@@ -78,8 +99,8 @@
                 },
                 series: [{
                     data: [
-                        ['Accompli', 20.0],
-                        ['Non accompli', 80.0]
+                        ['Accompli', {{ disas.get_percent() }}],
+                        ['Non accompli', {{ 100-disas.get_percent() }}]
                     ]
                 }]
             });
