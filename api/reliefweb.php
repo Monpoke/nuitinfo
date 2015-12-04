@@ -2,86 +2,28 @@
 
 require_once __DIR__ . "/../core/includes.php";
 $file = get_data("http://api.rwlabs.org/v1/disasters/");
-echo($file);
-$tab = json_decode($file, true);
-//var_dump($tab);
-//var_dump($tab["href"])
+$data = json_decode($file, true);
 
-$num = 1;
-echo trouverDate($tab, $num);
-echo trouverId($tab, $num);
-echo trouverRef($tab, $num);
-echo trouverNom($tab, $num);
-echo trouverIncident($tab, $num);
-
-function trouverDate($tab, $num)
-{ // permmetra un classement par date
-    $nom = $tab["data"][$num]["fields"]["name"];
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    // echo $nom;
-    echo "<br>";
-    echo "<br>";
-    $nomtab = explode(" - ", $nom);
-    return $nomtab[1];
+function getDescription($ref) {
+    $file = get_data("http://api.rwlabs.org/v1/disasters/".$ref);
+    $data = json_decode($file, true);
+    return $data["data"][0]["fields"]["description"];
 }
 
-function trouverId($tab, $num)
-{ // permmetra un classement par date
-    $id = $tab["data"][$num]["id"];
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    // echo $id;
-    echo "<br>";
-    echo "<br>";
-
-    return $id;
+function getDisaster($id) {
+    global $data;
+    $name = $data["data"][$id]["fields"]["name"];
+    $d = new Disaster($data["data"][$id]["id"], explode(": ", $name)[0], @explode(" - ", @explode(": ", $name)[1])[0], explode(" - ", $name)[1], getDescription($data["data"][$id]["id"]), null,  0, 0);
+   $d->setProduct(new Product(1,"Eau",100,"lot","aucune",true));
+    return $d;
 }
 
-function trouverRef($tab, $num)
-{ // permmetra un classement par date
-    $href = $tab["data"][$num]["href"];
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    // echo $id;
-    echo "<br>";
-    echo "<br>";
+function getDisasters() {
+    global $data;
+    $disasters = array();
+    for ($i = 0; $i < $data["count"]; $i++) {
+        $disasters[] = getDisaster($i);
+    }
+    return $disasters;
 
-    return $href;
-}
-
-function trouverNom($tab, $num)
-{ // permmetra un classement par date
-    $nom = $tab["data"][$num]["fields"]["name"];
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    $nomtab = explode(" - ", $nom);
-    $nomtab2 = explode(": ", $nomtab[0]);
-    echo "<br>";
-    echo "<br>";
-
-    return $nomtab2[0];
-}
-
-function trouverIncident($tab, $num)
-{ // permmetra un classement par date
-    $nom = $tab["data"][$num]["fields"]["name"];
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    $nomtab = explode(" - ", $nom);
-    $nomtab2 = explode(": ", $nomtab[0]);
-    echo "<br>";
-    echo "<br>";
-
-    return $nomtab2[1];
 }

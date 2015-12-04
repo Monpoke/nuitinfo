@@ -27,7 +27,7 @@ function get_product(ProductCategory $category) {
     $data_products = $data["Products"];
     foreach ($data_products as $data_product) {
         if ($data_product["BestOffer"]["IsAvailable"])
-            return new Product($data_product["Name"], (float)$data_product["BestOffer"]["SalePrice"], $category, $data_product["Description"], $data_product["BestOffer"]["IsAvailable"]);
+            return new Product($data_product["Id"], $data_product["Name"], (float)$data_product["BestOffer"]["SalePrice"], $category, $data_product["Description"], $data_product["BestOffer"]["IsAvailable"]);
     }
     return null;
 }

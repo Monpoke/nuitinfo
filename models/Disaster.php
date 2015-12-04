@@ -20,7 +20,7 @@ class Disaster extends Model {
 
     private $total_product;
 
-    function __construct($id, $location, $type, $date, $description, $image, Product $product, $total_raised, $total_product)
+    function __construct($id, $location, $type, $date, $description, $image, $total_raised, $total_product)
     {
         parent::__construct();
         $this->id = $id;
@@ -29,9 +29,14 @@ class Disaster extends Model {
         $this->date = $date;
         $this->description = $description;
         $this->image = $image;
-        $this->product = $product;
+//        $this->product = $product;
         $this->total_raised = $total_raised;
         $this->total_product = $total_product;
+    }
+
+    public function setProduct($product)
+    {
+        $this->product = $product;
     }
 
     public function getId()
