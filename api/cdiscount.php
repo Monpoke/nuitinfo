@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__."/../core/includes.php";
-
 define("API_KEY", "525502c6-8822-4539-a3cf-6a346e35a6f6");
 define("API_SEARCH", "https://api.cdiscount.com/OpenApi/json/Search");
 
@@ -33,5 +31,3 @@ function get_product(ProductCategory $category) {
     }
     return null;
 }
-
-var_dump(get_product(new ProductCategory("pansement", "test")));
