@@ -85,8 +85,14 @@ class Disaster extends Controller {
         if (isset($nomtab2[1])) {
             return $nomtab2[1];
         } else {
-            return "valeur non définie";
+            $tab=trouverRef($tab, $num);
+            
         }
+    }
+    function trouverDescription($tab, $num){
+       $file=trouverRef($tab, $num);
+       $tab2 = json_decode($file, true);
+       return $tab2["data"]["fields"]["description"];
     }
 
 }
