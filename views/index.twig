@@ -4,10 +4,22 @@
     Accueil
 {% endblock %}
 {% block body %}
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <p style="font-size:2em;line-height: 120%;border-radius:10px;background-color: gray; color:white; padding:10px;">
+                    Ce site recense les derniers sinistres qui ont eu lieu à travers le monde. Vous pouvez contribuer à
+                    l'aide humanitaire en faisant un don qui permettra d'acheter les produits de première nécessité
+                    grâce à notre partenaire <a href="http://cdiscount.com">CDiscount</a>.
+                </p>
+            </div>
+        </div>
+    </div>
 
     <section id="allDisasters">
 
         {% for disaster in disasters %}
+
 
             <div class="section">
                 <h5 class="center-align" style="text-decoration: underline;"><b>{{ disaster.name }}</b></h5>
