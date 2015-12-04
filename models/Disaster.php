@@ -20,7 +20,7 @@ class Disaster extends Model {
 
     private $total_product;
 
-    function __construct($id, $location, $type, $date, $description, $image, $product, $total_raised, $total_product)
+    function __construct($id, $location, $type, $date, $description, $image, Product $product, $total_raised, $total_product)
     {
         parent::__construct();
         $this->id = $id;
@@ -77,6 +77,10 @@ class Disaster extends Model {
     public function getTotalProduct()
     {
         return $this->total_product;
+    }
+
+    public function get_percent() {
+        return floor($this->total_product / $this->product->get_price() * 100);
     }
 
 }
