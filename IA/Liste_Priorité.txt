@@ -99,7 +99,49 @@ Liste complète typique:
 		1 savon
 		
 	Vetements
+		1 couverture survie
+		1 vetement
+		
+	
 		
 	
 Ideas :  Objectif est de finir une liste complete de vivres pour une personne par jour avant de passer a la personne suivante
 Avoir un objectif global -> prendre nombre total de personnes sinistrées * prix total d'une liste complete;
+
+
+
+
+// =================Coeff in listes========================
+
+Listes Nourriture(18) -2 : // 1560 cal minimum / jour par personne
+	(9) mais prio max > Lait en poudre; (50g) 250 cal
+	<8>Riz; (100g) 130 cal	
+	<7>Conserve Viande(Thon, ravioli, lentilles) (100g) 150 cal
+	<6>Pates (100g) 130 cal
+	<5>Conserve légumes (haricots verts, brocoli) (100g) 200 cal
+	<4>Compote de fruits/fruits seches (100 g) 120 cal
+	<3>Soupes lyophilisées; (100g) 30cal
+	<2>Barres de cereales (100g) 250 cal
+	<1>Pain complet (100g) 300 cal
+	
+Liste Eau(12) : -4
+	<1> bouteille de 1L d'eau
+	
+Liste Hygiène (10) -2: 
+	<5>Sac poubelles;
+	<4>Gants;
+	<3>Masques;
+	<2>Savon
+	<1>Gel désinfectant pour main;
+	
+Liste médicaments (4) -1:
+	<4>Compresses;
+	<3>Médecin;
+	<2>Paracetamol;
+	<1>Maux estomac;
+	
+Liste vêtement (2) -1:
+	<2>Couverture de survie;
+	<1>Vêtement;
+	
+//================Principe algo================
