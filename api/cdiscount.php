@@ -24,14 +24,14 @@ function search_products(ProductCategory $category, $page) {
     return json_decode($file, true);
 }
 
-function get_products(ProductCategory $category) {
+function get_product(ProductCategory $category) {
     $data = search_products($category, 0);
     $data_products = $data["Products"];
     foreach ($data_products as $data_product) {
-        $product = new Product($data_product["Name"], (float)$data_product["BestOffer"]["SalePrice"], $category, $data_product["Description"], $data_product["BestOffer"]["IsAvailable"]);
-        var_dump($product);
-        echo "<br /><br />";
+        if ($data_product["BestOffer"]["IsAvailable"])
+            return new Product($data_product["Name"], (float)$data_product["BestOffer"]["SalePrice"], $category, $data_product["Description"], $data_product["BestOffer"]["IsAvailable"]);
     }
+    return null;
 }
 
-get_products(new ProductCategory("pansement", "test"));
+get_product(new ProductCategory("pansement", "test"));
