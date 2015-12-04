@@ -17,4 +17,12 @@ abstract class Model {
         }
     }
 
+    /**
+     * @return PDO
+     */
+    public static function getPDO()
+    {
+        return self::$PDO;
+    }
+
 }
