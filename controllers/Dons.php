@@ -22,8 +22,10 @@ class Dons extends Controller
             echo "Merci ! Ce don de " . $val . " euros permettra d'acheter ce matériel de première nécessité !\n
             Une API PayPal aurai pu être implémentée.";
 
+            /** @var DonsModel $Recup */
+            $DonsModel = $this->loadModel("DonsModel");
+            $DonsModel->insertPayment($id, $val);
 
-            
             exit;
         }
         echo "fail";
