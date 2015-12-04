@@ -1,15 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>CrowdHelper | {% block title %}Home{% endblock %}</title>
+    <title>CrowdHelper - {% block title %}Index{% endblock %}</title>
+    <meta charset="utf-8"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+          rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
+<div class="container">
+    <div>
+        <h1 class="center-align">{{ block('title') }}</h1>
+    </div>
 
-{% block body %}
-    Default body block
-{% endblock %}
+    <div class="divider"></div>
 
+    {% block body %}
+    {% endblock %}
+</div>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+<script type="text/javascript" src="assets/js/chart.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+{% block js %}{% endblock %}
 </body>
 </html>

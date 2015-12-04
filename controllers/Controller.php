@@ -60,14 +60,14 @@ abstract class Controller
     /**
      * @param $model
      */
-    protected function loadModel($model)
+    protected function loadModel($model, $justInclude=false)
     {
         $modelFile = ROOT . "/models/" . $model . ".php";
         if(is_file($modelFile)){
 
         }
         require_once $modelFile;
-        if (class_exists($model)) {
+        if ($justInclude === false && class_exists($model)) {
             return new $model();
         }
     }

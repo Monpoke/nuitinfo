@@ -1,11 +1,124 @@
 {% extends "layouts/html.twig" %}
 
+{% block title %}
+    Accueil
+{% endblock %}
 {% block body %}
-    <h1>Accueil</h1>
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <p style="font-size:2em;line-height: 120%;border-radius:10px;background-color: gray; color:white; padding:10px;">
+                    Ce site recense les derniers sinistres qui ont eu lieu à travers le monde. Vous pouvez contribuer à
+                    l'aide humanitaire en faisant un don qui permettra d'acheter les produits de première nécessité
+                    grâce à notre partenaire <a href="http://cdiscount.com">CDiscount</a>.
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <p>
-        Test done
-    </p>
+    <section id="allDisasters">
 
-    <div id="message"></div>
+        {% for disaster in disasters %}
+
+
+            <div class="section">
+                <h5 class="center-align" style="text-decoration: underline;"><b>{{ disaster.name }}</b></h5>
+
+                <div class="row">
+                    <div class="col s6">
+                        <div class="card">
+                            <div class="card-image">
+                                <div class="row">
+                                    <div class="col s8">
+                                        <h2 style="margin-left: 2%;">
+                                            <i class="icon icon-globe"></i> {{ disaster.location }}
+                                            <small>{{ disaster.date }}</small>
+                                        </h2>
+                                    </div>
+                                    <div class="col s4" style="font-style: italic;padding-top:3%;font-size: 1.5em;;">
+                                        {{ disaster.type }}
+                                    </div>
+                                </div>
+
+                                <img src="assets/images/tsunami.jpg"/>
+                            </div>
+                            <div class="card-content">
+                                Small text
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6 valign-wrapper" style="padding-top:8%;">
+                        <div class="row valign">
+                            <div class="col s12">
+                                <div class="row">
+                                    <div id="chart_{{ disaster.id }}"
+                                         style="border:black solid 1px; width: 100%;height:250px;"></div>
+                                </div>
+                                <div class="row">
+                                    <p>
+                                        Si vous souhaitez faire un don pour aider les sinistrés, entrez le montant de
+                                        votre
+                                        aide ci-dessous:
+                                    </p>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s8 offset-s1">
+                                        <i class="icon-eur material-icons prefix"></i>
+                                        <input value="" id="don_{{ disaster.id }}" type="text" class="validate">
+                                        <label class="active" for="don">Don</label>
+                                    </div>
+                                    <div class="col s4">
+                                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                                            Donner
+                                            <i class="material-icons right"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="divider"></div>
+
+        {% endfor %}
+
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            var chart;
+
+            {%  for disas in disasters %}
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'chart_{{ disas.id }}',
+                    type: 'pie'
+                },
+                title: {
+                    "text": ""
+                },
+                plotOptions: {
+                    pie: {
+                        innerSize: '60%'
+                    }
+                },
+                series: [{
+                    data: [
+                        ['Accompli', {{ disas.get_percent() }}],
+                        ['Non accompli', {{ 100-disas.get_percent() }}]
+                    ]
+                }]
+            });
+            {%  endfor %}
+
+        });
+    </script>
+
 {% endblock %}
