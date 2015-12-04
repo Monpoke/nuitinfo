@@ -24,4 +24,20 @@ class DonsModel extends Model
         }
     }
 
+
+    public function getSumEvent($id)
+    {
+        $PDO = $this->getPDO();
+        try {
+            $p = $PDO->prepare("SELECT SUM(don) AS su FROM dons WHERE id_sinistre=:id LIMIT 1");
+            $p->execute(array(
+                ':id' => (int)$id
+            ));
+            $row = $p->fetch();
+            return (double)$row['su'];
+        } catch (Exception $e) {
+
+        }
+        return 0;
+    }
 }
