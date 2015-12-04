@@ -26,4 +26,4 @@ require_once ROOT . "/controllers/Controller.php";
 require_once ROOT . "/models/Model.php";
 require_once ROOT . "/models/Product.php";
 require_once ROOT . "/models/ProductCategory.php";
-require_once ROOT . "/models/CurrentProduct.php";
+require_once ROOT . "/models/Disaster.php";
